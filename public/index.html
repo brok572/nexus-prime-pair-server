@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ADEVOS-X TECH · Nexus Prime Pair</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
+      body {
+        min-height: 100vh;
+        background: radial-gradient(circle at top, #111827, #020617);
+        color: #e5e7eb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .card {
+        width: 100%;
+        max-width: 480px;
+        background: rgba(15, 23, 42, 0.9);
+        border-radius: 18px;
+        border: 1px solid rgba(148, 163, 184, 0.3);
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
+        padding: 24px 22px 20px;
+        backdrop-filter: blur(18px);
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+      .logo-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 999px;
+        background: radial-gradient(circle at 30% 20%, #22c55e, #16a34a);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 18px;
+        color: #ecfdf5;
+      }
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+      }
+      .logo-text span:first-child {
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #9ca3af;
+      }
+      .logo-text span:last-child {
+        font-size: 18px;
+        font-weight: 700;
+        color: #e5e7eb;
+      }
+      .title {
+        margin-top: 6px;
+        font-size: 20px;
+        font-weight: 700;
+        color: #f9fafb;
+      }
+      .subtitle {
+        margin-top: 6px;
+        font-size: 13px;
+        color: #9ca3af;
+        line-height: 1.5;
+      }
+      .label {
+        margin-top: 18px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #9ca3af;
+      }
+      .input-row {
+        margin-top: 8px;
+        display: flex;
+        gap: 8px;
+      }
+      input[type='text'] {
+        flex: 1;
+        padding: 10px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.5);
+        background: rgba(15, 23, 42, 0.9);
+        color: #e5e7eb;
+        font-size: 14px;
+        outline: none;
+      }
+      input[type='text']::placeholder {
+        color: #6b7280;
+      }
+      button {
+        padding: 10px 16px;
+        border-radius: 999px;
+        border: none;
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        color: #ecfdf5;
+        font-weight: 600;
+        font-size: 13px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      button:disabled {
+        opacity: 0.6;
+        cursor: default;
+      }
+      .status {
+        margin-top: 10px;
+        font-size: 13px;
+        color: #9ca3af;
+      }
+      .status strong {
+        color: #e5e7eb;
+      }
+      .pair-code-box {
+        margin-top: 14px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px dashed rgba(148, 163, 184, 0.6);
+        background: rgba(15, 23, 42, 0.8);
+        font-family: 'SF Mono', ui-monospace, Menlo, Monaco, Consolas, 'Liberation Mono',
+          'Courier New', monospace;
+        font-size: 18px;
+        letter-spacing: 0.3em;
+        text-align: center;
+        color: #f9fafb;
+      }
+      .hint {
+        margin-top: 10px;
+        font-size: 12px;
+        color: #9ca3af;
+        line-height: 1.5;
+      }
+      .hint span {
+        color: #e5e7eb;
+        font-weight: 500;
+      }
+      .footer {
+        margin-top: 18px;
+        border-top: 1px solid rgba(31, 41, 55, 0.9);
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11px;
+        color: #6b7280;
+      }
+      .now-playing {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: #22c55e;
+        box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.25);
+      }
+      .song-title {
+        font-weight: 500;
+        color: #e5e7eb;
+      }
+      .song-artist {
+        color: #9ca3af;
+      }
+      @media (max-width: 480px) {
+        .card {
+          padding: 20px 18px 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="logo">
+        <div class="logo-icon">A</div>
+        <div class="logo-text">
+          <span>ADEVOS-X TECH</span>
+          <span>Nexus Prime · WhatsApp Bot</span>
+        </div>
+      </div>
+
+      <div class="title">PAIR</div>
+      <div class="subtitle">
+        Enter your WhatsApp number to receive an 8‑digit pairing code.<br />
+        Then on your phone: <strong>WhatsApp → Linked Devices → Link a Device → Link with phone number</strong>.
+      </div>
+
+      <div class="label">Enter your number</div>
+      <form id="pairForm">
+        <div class="input-row">
+          <input
+            type="text"
+            id="phone"
+            placeholder="e.g. 255663402315"
+            autocomplete="off"
+            required
+          />
+          <button type="submit" id="pairBtn">GET CODE</button>
+        </div>
+      </form>
+
+      <div class="status" id="statusText">Waiting for your number…</div>
+
+      <div class="pair-code-box" id="pairCodeBox">--------</div>
+
+      <div class="hint">
+        1. Enter your full number with country code (no +).<br />
+        2. On your phone: <span>WhatsApp → Linked Devices → Link a Device → Link with phone number</span>.<br />
+        3. Enter the <span>8‑digit code</span> shown above.
+      </div>
+
+      <div class="footer">
+        <div class="now-playing">
+          <div class="dot"></div>
+          <div>
+            <div class="song-title">Pairing Song</div>
+            <div class="song-artist">By Adevos-X Tech · Adevos-X</div>
+          </div>
+        </div>
+        <div>© Adevos-X Tech</div>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById('pairForm');
+      const phoneInput = document.getElementById('phone');
+      const statusText = document.getElementById('statusText');
+      const pairCodeBox = document.getElementById('pairCodeBox');
+      const pairBtn = document.getElementById('pairBtn');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const phone = phoneInput.value.trim();
+        if (!phone) return;
+
+        pairBtn.disabled = true;
+        statusText.textContent = 'Generating pairing code…';
+        pairCodeBox.textContent = '--------';
+
+        try {
+          const res = await fetch('/pair', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ phone })
+          });
+          const data = await res.json();
+          if (!data.success) {
+            statusText.textContent = data.message || 'Failed to generate code.';
+            pairBtn.disabled = false;
+            return;
+          }
+
+          statusText.innerHTML =
+            'Pairing code generated. Open <strong>WhatsApp → Linked Devices</strong> and use it now.';
+          pairCodeBox.textContent = (data.pairingCode || '--------').replace(/(.{4})/, '$1 ');
+        } catch (err) {
+          console.error(err);
+          statusText.textContent = 'Error talking to server.';
+        } finally {
+          pairBtn.disabled = false;
+        }
+      });
+    </script>
+  </body>
+</html>
